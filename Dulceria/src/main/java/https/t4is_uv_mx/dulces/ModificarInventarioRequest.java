@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2022.05.21 a las 05:54:15 PM CDT 
+// Generado el: 2022.05.31 a las 03:42:07 PM CDT 
 //
 
 
@@ -26,9 +26,10 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="nuevoNombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="nuevaCantidad" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="nuevoPrecio" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="nombreProducto" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="cantidad" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="disponibilidad" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -40,18 +41,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "id",
-    "nuevoNombre",
-    "nuevaCantidad",
-    "nuevoPrecio"
+    "nombreProducto",
+    "cantidad",
+    "precio",
+    "disponibilidad"
 })
 @XmlRootElement(name = "ModificarInventarioRequest")
 public class ModificarInventarioRequest {
 
     protected int id;
     @XmlElement(required = true)
-    protected String nuevoNombre;
-    protected int nuevaCantidad;
-    protected int nuevoPrecio;
+    protected String nombreProducto;
+    protected int cantidad;
+    protected int precio;
+    @XmlElement(required = true)
+    protected String disponibilidad;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -70,59 +74,83 @@ public class ModificarInventarioRequest {
     }
 
     /**
-     * Obtiene el valor de la propiedad nuevoNombre.
+     * Obtiene el valor de la propiedad nombreProducto.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getNuevoNombre() {
-        return nuevoNombre;
+    public String getNombreProducto() {
+        return nombreProducto;
     }
 
     /**
-     * Define el valor de la propiedad nuevoNombre.
+     * Define el valor de la propiedad nombreProducto.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setNuevoNombre(String value) {
-        this.nuevoNombre = value;
+    public void setNombreProducto(String value) {
+        this.nombreProducto = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad nuevaCantidad.
+     * Obtiene el valor de la propiedad cantidad.
      * 
      */
-    public int getNuevaCantidad() {
-        return nuevaCantidad;
+    public int getCantidad() {
+        return cantidad;
     }
 
     /**
-     * Define el valor de la propiedad nuevaCantidad.
+     * Define el valor de la propiedad cantidad.
      * 
      */
-    public void setNuevaCantidad(int value) {
-        this.nuevaCantidad = value;
+    public void setCantidad(int value) {
+        this.cantidad = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad nuevoPrecio.
+     * Obtiene el valor de la propiedad precio.
      * 
      */
-    public int getNuevoPrecio() {
-        return nuevoPrecio;
+    public int getPrecio() {
+        return precio;
     }
 
     /**
-     * Define el valor de la propiedad nuevoPrecio.
+     * Define el valor de la propiedad precio.
      * 
      */
-    public void setNuevoPrecio(int value) {
-        this.nuevoPrecio = value;
+    public void setPrecio(int value) {
+        this.precio = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad disponibilidad.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDisponibilidad() {
+        return disponibilidad;
+    }
+
+    /**
+     * Define el valor de la propiedad disponibilidad.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDisponibilidad(String value) {
+        this.disponibilidad = value;
     }
 
 }

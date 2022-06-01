@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2022.05.21 a las 05:54:15 PM CDT 
+// Generado el: 2022.05.31 a las 03:42:07 PM CDT 
 //
 
 
@@ -25,10 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="nuevoNombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="nuevaCantidad" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="nuevoPrecio" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="respuesta" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -39,90 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "id",
-    "nuevoNombre",
-    "nuevaCantidad",
-    "nuevoPrecio"
+    "respuesta"
 })
 @XmlRootElement(name = "ModificarInventarioResponse")
 public class ModificarInventarioResponse {
 
-    protected int id;
     @XmlElement(required = true)
-    protected String nuevoNombre;
-    protected int nuevaCantidad;
-    protected int nuevoPrecio;
+    protected String respuesta;
 
     /**
-     * Obtiene el valor de la propiedad id.
-     * 
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Define el valor de la propiedad id.
-     * 
-     */
-    public void setId(int value) {
-        this.id = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad nuevoNombre.
+     * Obtiene el valor de la propiedad respuesta.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getNuevoNombre() {
-        return nuevoNombre;
+    public String getRespuesta() {
+        return respuesta;
     }
 
     /**
-     * Define el valor de la propiedad nuevoNombre.
+     * Define el valor de la propiedad respuesta.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setNuevoNombre(String value) {
-        this.nuevoNombre = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad nuevaCantidad.
-     * 
-     */
-    public int getNuevaCantidad() {
-        return nuevaCantidad;
-    }
-
-    /**
-     * Define el valor de la propiedad nuevaCantidad.
-     * 
-     */
-    public void setNuevaCantidad(int value) {
-        this.nuevaCantidad = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad nuevoPrecio.
-     * 
-     */
-    public int getNuevoPrecio() {
-        return nuevoPrecio;
-    }
-
-    /**
-     * Define el valor de la propiedad nuevoPrecio.
-     * 
-     */
-    public void setNuevoPrecio(int value) {
-        this.nuevoPrecio = value;
+    public void setRespuesta(String value) {
+        this.respuesta = value;
     }
 
 }

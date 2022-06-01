@@ -11,6 +11,8 @@ import https.t4is_uv_mx.dulces.MostrarDulcesMenuResponse;
 import https.t4is_uv_mx.dulces.ComprarDulcesResponse;
 import https.t4is_uv_mx.dulces.MostrarDulcesInventarioResponse;
 import https.t4is_uv_mx.dulces.ComprarDulcesRequest;
+import https.t4is_uv_mx.dulces.ModificarInventarioRequest;
+import https.t4is_uv_mx.dulces.ModificarInventarioResponse;
 
 @Endpoint
 public class DulceriaEndPoint {
@@ -20,16 +22,44 @@ public class DulceriaEndPoint {
 
 
     //comprar los dulces 
-    @PayloadRoot(localPart = "ComprarDulcesRequest" ,namespace = "https://t4is.uv.mx/agendabd")
+    @PayloadRoot(localPart = "ComprarDulcesRequest" ,namespace = "https://t4is.uv.mx/dulces")
     @ResponsePayload
     public ComprarDulcesResponse comprarDulces(@RequestPayload ComprarDulcesRequest peticion){
-        ComprarDulcesResponse respuesta = new ComprarDulcesResponse();
-
-        return respuesta; 
+       ComprarDulcesResponse respuesta = new ComprarDulcesResponse();
+       Boolean isDulce = false;
+        dulces dulceCompra = new dulces();
+        dulceCompra.setId(peticion.getId());
+        dulceCompra.setCantidadCompra(peticion.getCantidadCompra());
+        dulceCompra.setPago(peticion.getPago()); 
+        Iterable<dulces> lista = idulces.findAll();
+        for (dulces dulces : lista) {
+            if(dulces.getId()==peticion.getId()){
+                if(dulces.getCantidad()>dulceCompra.getCantidadCompra()){
+                    int dulcesExistencia = dulces.getCantidad();
+                    int dulceComprar = dulceCompra.getCantidadCompra();
+                    dulcesExistencia = dulcesExistencia - dulceComprar;
+                    dulces.setCantidad(dulcesExistencia);
+                    idulces.save(dulces);
+                    isDulce = true;
+                }
+                else{
+                    respuesta.setRespuesta("la cantidad deseada es mayor a la del inventario");        
+                    return respuesta;
+                }
+            }
+        }
+        if(!isDulce)
+        {
+            respuesta.setRespuesta("Dulce no encontrado en el inventario");        
+            return respuesta;
+        }
+                respuesta.setRespuesta("dulce comprado satisfactoriamente");        
+                    return respuesta;
     }
 
+
     //mostrar el menu de los dulces 
-    @PayloadRoot(localPart = "MostrarDulcesMenuRequest" ,namespace = "https://t4is.uv.mx/Dulceria")
+    @PayloadRoot(localPart = "MostrarDulcesMenuRequest" ,namespace = "https://t4is.uv.mx/dulces")
     @ResponsePayload
     public MostrarDulcesMenuResponse mostrarDulces(){
         MostrarDulcesMenuResponse respuesta = new MostrarDulcesMenuResponse();
@@ -50,7 +80,7 @@ public class DulceriaEndPoint {
     }
 
     //mostrar el inventario de los dulces 
-    @PayloadRoot(localPart = "MostrarDulcesInventarioRequest" ,namespace = "https://t4is.uv.mx/Dulceria")
+    @PayloadRoot(localPart = "MostrarDulcesInventarioRequest" ,namespace = "https://t4is.uv.mx/dulces")
     @ResponsePayload
     public MostrarDulcesInventarioResponse mostrarDulcesInventario(){
         MostrarDulcesInventarioResponse respuesta = new MostrarDulcesInventarioResponse();
@@ -68,6 +98,22 @@ public class DulceriaEndPoint {
             respuesta.getDulcesInventario().add(e);
         }
         //regresa la respuesta 
+        return respuesta;
+    }
+
+    @PayloadRoot(localPart = "ModificarInventarioRequest" ,namespace = "https://t4is.uv.mx/dulces")
+    @ResponsePayload
+    public ModificarInventarioResponse modificarSaludo(@RequestPayload ModificarInventarioRequest peticion){       
+        ModificarInventarioResponse respuesta = new ModificarInventarioResponse(); 
+        dulces dulces = new dulces();
+        dulces.setId(peticion.getId());
+        dulces.setNombreProducto(peticion.getNombreProducto());
+        dulces.setPrecioProducto(peticion.getPrecio());
+        dulces.setCantidad(peticion.getCantidad());
+        dulces.setDisponibilidad(peticion.getDisponibilidad());
+
+        idulces.save(dulces);
+        respuesta.setRespuesta("dulce modificado exitosamente");        
         return respuesta;
     }
 

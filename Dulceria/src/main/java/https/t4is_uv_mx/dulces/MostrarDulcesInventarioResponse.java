@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2022.05.31 a las 03:42:07 PM CDT 
+// Generado el: 2022.06.02 a las 04:09:35 PM CDT 
 //
 
 
@@ -35,6 +35,7 @@ import javax.xml.bind.annotation.XmlType;
  *                   &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *                   &lt;element name="nombreProducto" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *                   &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *                   &lt;element name="cantidad" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *                   &lt;element name="disponibilidad" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *                 &lt;/sequence&gt;
  *               &lt;/restriction&gt;
@@ -102,6 +103,7 @@ public class MostrarDulcesInventarioResponse {
      *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
      *         &lt;element name="nombreProducto" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
      *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+     *         &lt;element name="cantidad" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
      *         &lt;element name="disponibilidad" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
      *       &lt;/sequence&gt;
      *     &lt;/restriction&gt;
@@ -116,6 +118,7 @@ public class MostrarDulcesInventarioResponse {
         "id",
         "nombreProducto",
         "precio",
+        "cantidad",
         "disponibilidad"
     })
     public static class DulcesInventario {
@@ -124,6 +127,7 @@ public class MostrarDulcesInventarioResponse {
         @XmlElement(required = true)
         protected String nombreProducto;
         protected int precio;
+        protected int cantidad;
         @XmlElement(required = true)
         protected String disponibilidad;
 
@@ -181,6 +185,22 @@ public class MostrarDulcesInventarioResponse {
          */
         public void setPrecio(int value) {
             this.precio = value;
+        }
+
+        /**
+         * Obtiene el valor de la propiedad cantidad.
+         * 
+         */
+        public int getCantidad() {
+            return cantidad;
+        }
+
+        /**
+         * Define el valor de la propiedad cantidad.
+         * 
+         */
+        public void setCantidad(int value) {
+            this.cantidad = value;
         }
 
         /**

@@ -19,8 +19,6 @@ public class DulceriaEndPoint {
 
     @Autowired
     Idulces idulces;
-
-
     //comprar los dulces 
     @PayloadRoot(localPart = "ComprarDulcesRequest" ,namespace = "https://t4is.uv.mx/dulces")
     @ResponsePayload
@@ -93,7 +91,9 @@ public class DulceriaEndPoint {
             e.setId(dulces.getId());
             e.setNombreProducto(dulces.getNombreProducto());
             e.setPrecio(dulces.getPrecioProducto());
+            e.setCantidad(dulces.getCantidad());
             e.setDisponibilidad(dulces.getDisponibilidad());
+            
             //los guarda
             respuesta.getDulcesInventario().add(e);
         }
@@ -101,6 +101,7 @@ public class DulceriaEndPoint {
         return respuesta;
     }
 
+    //modificacion de los dulcess en el inventario
     @PayloadRoot(localPart = "ModificarInventarioRequest" ,namespace = "https://t4is.uv.mx/dulces")
     @ResponsePayload
     public ModificarInventarioResponse modificarSaludo(@RequestPayload ModificarInventarioRequest peticion){       
